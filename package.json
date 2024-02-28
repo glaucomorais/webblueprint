@@ -9,17 +9,34 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "commands": [],
+    "views": {
+      "webblueprint-components": [
+        {
+          "id": "components",
+          "name": "Components"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "webblueprint-components",
+          "title": "Web²lueprint",
+          "icon": "$(preview)"
+        }
+      ]
+    },
+    "viewsWelcome": [
       {
-        "command": "webblueprint.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "webblueprint.goodbye",
-        "title": "Good Bye"
+        "view": "components",
+        "contents": "No front-end framework detected.\nPlease, select a framework or initialize your project with the front-end framework of your choice.",
+        "when": "!webblueprint.detectedFramework && !webblueprint.currentFramework"
       }
     ]
   },
